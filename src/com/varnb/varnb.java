@@ -1,26 +1,32 @@
 package com.varnb;
 
-
 import java.util.Scanner;
 import java.util.Arrays;
 
 public class varnb {
-	// main函数为程序的入口，相当于你回家时的大门
-	  public static void main(String[] args) {
-	        
-		// 定义两行三列的二维数组并赋值
-		
-		  String[][] names={{"tom","jack","mike"},{"zhangsan","lisi","wangwu"}};
-		                 
-				// 通过二重循环输出二维数组中元素的值
-				for (int i = 0; i <names.length ; i++) {
-		            
-					for (int j = 0; j < names[i].length; j++) {
-		                
-						System.out.print( names[i][j]+" ");
-					}
-		            
-					System.out.println();
-				}
+
+	public static void main(String[] args) {
+		int[] sco1 = { 89, -23, 64, 91, 119, 52, 73 };
+		varnb sVarnb = new varnb();
+		System.out.println("前三名成绩依次为：");
+		sVarnb.getScores(sco1);
+
+	}
+
+	public void getScores(int[] sco1) {
+		Arrays.sort(sco1);
+		int num = 0;
+		for (int i = sco1.length - 1; i >= 0; i--) {
+
+			if (sco1[i] < 0 || sco1[i] > 100) {
+				continue;
+			}
+			num++;
+			if (num > 3) {
+				break;
+			}
+			System.out.println(sco1[i]);
 		}
+
+	}
 }
